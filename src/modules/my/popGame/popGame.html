@@ -1,0 +1,42 @@
+<template>
+    <div class="game-container">
+        <div class="game-play">
+            <template if:true={popGameShapeList} for:each={popGameShapeList} for:item="popGameCoordinate">
+                <div key={popGameCoordinate.id} data-id="divId">
+                    <template if:true={popGameCoordinate.showPopMessage}>
+                        <h6 style={popGameCoordinate.popColor}>
+                            POP!!
+                        </h6>
+                    </template>
+                    <template if:false={popGameCoordinate.showPopMessage}>
+                        <my-draw-shapes surface={Shape} color={popGameCoordinate.color} onclick={handleClickedShape}
+                            data-clicked-id={popGameCoordinate.id}>
+                        </my-draw-shapes>
+                    </template>
+                </div>
+            </template>
+        </div>
+        ==allPopped : {allPopped}
+        <template if:true={showOverlay}>
+            <div class="overlay">
+                <div class="overlay-content">
+                    <template if:true={allPopped}>
+                        <div class="slds-text-heading_medium"
+                            style="color: #108b91;font-style: oblique;font-family: serif;">
+                            Woohooo!! You've popped all of them.
+                        </div>
+                        <br />
+                        <lightning-button label="Play Again" onclick={handleNewGame} variant="brand"></lightning-button>
+                    </template>
+                    <template if:false={allPopped}>
+                        <div class="slds-text-heading_medium">
+                            Click on each Balloon and POP it!
+                        </div>
+                        <br />
+                        <lightning-button label="Start" onclick={handleNewGame} variant="brand"></lightning-button>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

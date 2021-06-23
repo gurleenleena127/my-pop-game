@@ -1,0 +1,33 @@
+.game-container {
+ 
+   
+}
+
+.game-play div {
+    display: inline-block;
+    text-align: center;
+    width : 100px;
+    opacity: 20%;
+    pointer-events: none;
+}
+.overlay {
+    position: relative;
+    width: 100%;
+    margin-top: -33%;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+}
+
+.overlay-content {
+    position: relative;
+    top: 50%;
+    text-align: center;
+    padding: 1rem;
+    background:  white;
+    border-radius: 2rem;
+}
+.enableShape{
+    opacity: unset !important;
+    pointer-events: unset !important;   
+}
